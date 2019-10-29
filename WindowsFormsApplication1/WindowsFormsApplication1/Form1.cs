@@ -16,8 +16,10 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        private void btnIniciar_Click(object sender, EventArgs e)
+
+        private void btnIniciar_Click_1(object sender, EventArgs e)
         {
+
             Random ran = new Random();
 
             int num1 = ran.Next(1, 10);
@@ -46,19 +48,100 @@ namespace WindowsFormsApplication1
             txt3.Visible = true;
             txt4.Visible = true;
             txt1.Focus();
-
         }
 
+        private void btnProbar_Click_1(object sender, EventArgs e)
+        {
+            String num1 = txt1.Text;
+            String num2 = txt2.Text;
+            String num3 = txt3.Text;
+            String num4 = txt4.Text;
+            int contadorCorrectos = 0;
+            int contadorIncorrectos = 0;
+
+            if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
+            {
+                if (num1 == txtNum1.Text && num1 != txtNum2.Text && num1 != txtNum3.Text && num1 != txtNum4.Text)
+                {
+                    contadorCorrectos++;
+
+                }
+                else
+                {
+                    contadorIncorrectos++;
+                }
+            }
+
+            if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
+            {
+                if (num2 == txtNum2.Text && num2 != txtNum1.Text && num2 != txtNum3.Text && num2 != txtNum4.Text)
+                {
+                    contadorCorrectos++;
+
+                }
+                else
+                {
+                    contadorIncorrectos++;
+
+                }
+            }
+
+            if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
+            {
+                if (num3 == txtNum3.Text && num3 != txtNum2.Text && num3 != txtNum1.Text && num3 != txtNum4.Text)
+                {
+                    contadorCorrectos++;
+
+                }
+                else
+                {
+                    contadorIncorrectos++;
+                }
+            }
+
+            if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
+            {
+                if (num4 == txtNum4.Text && num4 != txtNum2.Text && num4 != txtNum3.Text && num4 != txtNum1.Text)
+                {
+                    contadorCorrectos++;
+
+                }
+                else
+                {
+                    contadorIncorrectos++;
+                }
+            }
+
+            lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
+            lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
+            lblMensajeCorrectos.Visible = true;
+            lblMensajeIncorrectos.Visible = true;
+
+            if (contadorCorrectos == 4)
+            {
+                lblMensajeCorrectos.Text = "Felicitaciones, has ganado";
+                lblMensajeIncorrectos.Visible = false;
+                btnIniciar.Visible = true;
+                btnProbar.Visible = false;
+                txtNum1.Visible = true;
+                txtNum2.Visible = true;
+                txtNum3.Visible = true;
+                txtNum4.Visible = true;
+
+            }
+        }
+        
         #region Efectos visuales
 
-        private void txt1_TextChanged(object sender, EventArgs e)
+        private void txt1_TextChanged_1(object sender, EventArgs e)
         {
+     
             if (txt1.Text != "")
             {
                 txt2.Focus();
             }
+     
         }
-
         private void txt2_TextChanged(object sender, EventArgs e)
         {
             if (txt2.Text != "")
@@ -198,95 +281,7 @@ namespace WindowsFormsApplication1
             txt4.Text = "";
         }
 
-
-
         #endregion
 
-        private void btnProbar_Click(object sender, EventArgs e)
-        {
-            String num1 = txt1.Text;
-            String num2 = txt2.Text;
-            String num3 = txt3.Text;
-            String num4 = txt4.Text;
-            int contadorCorrectos = 0;
-            int contadorIncorrectos = 0;
-
-            if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
-            {
-                if (num1 == txtNum1.Text && num1 != txtNum2.Text && num1 != txtNum3.Text && num1 != txtNum4.Text)
-                {
-                    contadorCorrectos++;
-
-                }
-                else
-                {
-                    contadorIncorrectos++;
-                }
-            }
-
-            if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
-            {
-                if (num2 == txtNum2.Text && num2 != txtNum1.Text && num2 != txtNum3.Text && num2 != txtNum4.Text)
-                {
-                    contadorCorrectos++;
-
-                }
-                else
-                {
-                    contadorIncorrectos++;
-
-                }
-            }
-
-            if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
-            {
-                if (num3 == txtNum3.Text && num3 != txtNum2.Text && num3 != txtNum1.Text && num3 != txtNum4.Text)
-                {
-                    contadorCorrectos++;
-
-                }
-                else
-                {
-                    contadorIncorrectos++;
-                }
-            }
-
-            if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
-            {
-                if (num4 == txtNum4.Text && num4 != txtNum2.Text && num4 != txtNum3.Text && num4 != txtNum1.Text)
-                {
-                    contadorCorrectos++;
-
-                }
-                else
-                {
-                    contadorIncorrectos++;
-                }
-            }
-
-            lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
-            lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
-            lblMensajeCorrectos.Visible = true;
-            lblMensajeIncorrectos.Visible = true;
-
-            if (contadorCorrectos == 4)
-            {
-                lblMensajeCorrectos.Text = "Felicitaciones, has ganado";
-                lblMensajeIncorrectos.Visible = false;
-                btnIniciar.Visible = true;
-                btnProbar.Visible = false;
-                txtNum1.Visible = true;
-                txtNum2.Visible = true;
-                txtNum3.Visible = true;
-                txtNum4.Visible = true;
-
-            }
-
-        }
-
-        private void btnIniciar_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

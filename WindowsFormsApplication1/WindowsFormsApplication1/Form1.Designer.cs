@@ -76,6 +76,7 @@
             this.btnProbar.Text = "Probar";
             this.btnProbar.UseVisualStyleBackColor = true;
             this.btnProbar.Visible = false;
+            this.btnProbar.Click += new System.EventHandler(this.btnProbar_Click_1);
             // 
             // txt4
             // 
@@ -87,6 +88,8 @@
             this.txt4.TabIndex = 20;
             this.txt4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt4.Visible = false;
+            this.txt4.Enter += new System.EventHandler(this.txt4_Enter);
+            this.txt4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt4_KeyPress);
             // 
             // txt3
             // 
@@ -98,6 +101,9 @@
             this.txt3.TabIndex = 19;
             this.txt3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt3.Visible = false;
+            this.txt3.TextChanged += new System.EventHandler(this.txt3_TextChanged);
+            this.txt3.Enter += new System.EventHandler(this.txt3_Enter);
+            this.txt3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt3_KeyPress);
             // 
             // txt2
             // 
@@ -109,6 +115,9 @@
             this.txt2.TabIndex = 18;
             this.txt2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt2.Visible = false;
+            this.txt2.TextChanged += new System.EventHandler(this.txt2_TextChanged);
+            this.txt2.Enter += new System.EventHandler(this.txt2_Enter);
+            this.txt2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt2_KeyPress);
             // 
             // txt1
             // 
@@ -120,6 +129,8 @@
             this.txt1.TabIndex = 17;
             this.txt1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt1.Visible = false;
+            this.txt1.TextChanged += new System.EventHandler(this.txt1_TextChanged_1);
+            this.txt1.Enter += new System.EventHandler(this.txt1_Enter);
             // 
             // btnIniciar
             // 
