@@ -150,7 +150,6 @@
             this.txtNum4.Name = "txtNum4";
             this.txtNum4.Size = new System.Drawing.Size(59, 116);
             this.txtNum4.TabIndex = 15;
-            this.txtNum4.Visible = false;
             // 
             // txtNum3
             // 
@@ -159,7 +158,6 @@
             this.txtNum3.Name = "txtNum3";
             this.txtNum3.Size = new System.Drawing.Size(59, 116);
             this.txtNum3.TabIndex = 14;
-            this.txtNum3.Visible = false;
             // 
             // txtNum2
             // 
@@ -168,7 +166,6 @@
             this.txtNum2.Name = "txtNum2";
             this.txtNum2.Size = new System.Drawing.Size(59, 116);
             this.txtNum2.TabIndex = 13;
-            this.txtNum2.Visible = false;
             // 
             // txtNum1
             // 
@@ -177,7 +174,6 @@
             this.txtNum1.Name = "txtNum1";
             this.txtNum1.Size = new System.Drawing.Size(59, 116);
             this.txtNum1.TabIndex = 12;
-            this.txtNum1.Visible = false;
             // 
             // Form1
             // 

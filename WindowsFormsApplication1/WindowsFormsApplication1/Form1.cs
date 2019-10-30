@@ -27,16 +27,28 @@ namespace WindowsFormsApplication1
             int num3 = ran.Next(1, 10);
             int num4 = ran.Next(1, 10);
 
+            while (num1 == num2 || num1 == num3 || num1 == num4 ||
+                  num2 == num1 || num2 == num3 || num2 == num4 ||
+                  num3 == num1 || num3 == num2 || num3 == num4 ||
+                  num4 == num1 || num4 == num3 || num4 == num2)
+            {
+                 num1 = ran.Next(1, 10);
+                 num2 = ran.Next(1, 10);
+                 num3 = ran.Next(1, 10);
+                 num4 = ran.Next(1, 10);
+            }
+
+
             txtNum1.Text = Convert.ToString(num1);
             txtNum2.Text = Convert.ToString(num2);
             txtNum3.Text = Convert.ToString(num3);
             txtNum4.Text = Convert.ToString(num4);
-
-            btnIniciar.Visible = false;
+ 
+            /*btnIniciar.Visible = false;
             txtNum1.Visible = false;
             txtNum2.Visible = false;
             txtNum3.Visible = false;
-            txtNum4.Visible = false;
+            txtNum4.Visible = false;*/
             lblMensajeCorrectos.Text = "";
             btnProbar.Visible = true;
             txt1.Text = "";
@@ -165,81 +177,6 @@ namespace WindowsFormsApplication1
                 txt4.Text = "";
                 txt3.Focus();
             }
-            if (e.KeyChar == Convert.ToChar(Keys.Enter))
-            {
-                String num1 = txt1.Text;
-                String num2 = txt2.Text;
-                String num3 = txt3.Text;
-                String num4 = txt4.Text;
-                int contadorCorrectos = 0;
-                int contadorIncorrectos = 0;
-
-                if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
-                {
-                    if (num1 == txtNum1.Text && num1 != txtNum2.Text && num1 != txtNum3.Text && num1 != txtNum4.Text)
-                    {
-                        contadorCorrectos++;
-                    }
-                    else
-                    {
-                        contadorIncorrectos++;
-                    }
-                }
-
-                if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
-                {
-                    if (num2 == txtNum2.Text && num2 != txtNum1.Text && num2 != txtNum3.Text && num2 != txtNum4.Text)
-                    {
-                        contadorCorrectos++;
-                    }
-                    else
-                    {
-                        contadorIncorrectos++;
-                    }
-                }
-
-                if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
-                {
-                    if (num3 == txtNum3.Text && num3 != txtNum2.Text && num3 != txtNum1.Text && num3 != txtNum4.Text)
-                    {
-                        contadorCorrectos++;
-                    }
-                    else
-                    {
-                        contadorIncorrectos++;
-                    }
-                }
-
-                if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
-                {
-                    if (num4 == txtNum4.Text && num4 != txtNum2.Text && num4 != txtNum3.Text && num4 != txtNum1.Text)
-                    {
-                        contadorCorrectos++;
-                    }
-                    else
-                    {
-                        contadorIncorrectos++;
-                    }
-                }
-
-                lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
-                lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
-                lblMensajeCorrectos.Visible = true;
-                lblMensajeIncorrectos.Visible = true;
-
-                if (contadorCorrectos == 4)
-                {
-                    lblMensajeCorrectos.Text = "Felicitaciones, has ganado";
-                    lblMensajeIncorrectos.Visible = false;
-                    btnIniciar.Visible = true;
-                    btnProbar.Visible = false;
-                    txtNum1.Visible = true;
-                    txtNum2.Visible = true;
-                    txtNum3.Visible = true;
-                    txtNum4.Visible = true;
-                }
-            }
-
 
         }
 
