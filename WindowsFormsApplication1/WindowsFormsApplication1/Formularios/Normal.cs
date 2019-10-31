@@ -168,6 +168,7 @@ namespace WindowsFormsApplication1
                 txt2.Focus();
             }
         }
+
         private void txt2_TextChanged(object sender, EventArgs e)
         {
             lblMensajeCorrectos.Visible = false;
@@ -193,8 +194,6 @@ namespace WindowsFormsApplication1
             lblMensajeCorrectos.Visible = false;
             lblMensajeIncorrectos.Visible = false;
         }
-
-
 
         private void txt4_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -222,11 +221,15 @@ namespace WindowsFormsApplication1
             }
             txt2.Text="";
         }
+
         private void txt1_KeyPress(object sender, KeyPressEventArgs e)
         {
             txt1.Text = "";
         }
+        
         #endregion
+
+
 
         private void Normal_FormClosed(object sender, FormClosedEventArgs e)
         {

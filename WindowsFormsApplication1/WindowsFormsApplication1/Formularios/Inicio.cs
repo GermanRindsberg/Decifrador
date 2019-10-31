@@ -39,7 +39,13 @@ namespace WindowsFormsApplication1
                 normal.Show();
                 normal.txtUsuario.Text = "Bienvenido "+ nombre + " Mucha suerte!";
                 this.Hide();
-
+            }
+            if (rbFacil.Checked == true)
+            {
+                Formularios.Facil facil = new Formularios.Facil();
+                facil.Show();
+                facil.txtUsuario.Text= "Bienvenido " + nombre + " Mucha suerte!";
+                this.Hide();
             }
         }
       

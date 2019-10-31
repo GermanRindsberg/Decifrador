@@ -46,24 +46,33 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Normal.cs">
+    <Compile Include="Formularios\Facil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Normal.Designer.cs">
+    <Compile Include="Formularios\Facil.Designer.cs">
+      <DependentUpon>Facil.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Normal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Normal.Designer.cs">
       <DependentUpon>Normal.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inicio.cs">
+    <Compile Include="Formularios\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inicio.Designer.cs">
+    <Compile Include="Formularios\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Normal.resx">
+    <EmbeddedResource Include="Formularios\Facil.resx">
+      <DependentUpon>Facil.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Normal.resx">
       <DependentUpon>Normal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inicio.resx">
+    <EmbeddedResource Include="Formularios\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
