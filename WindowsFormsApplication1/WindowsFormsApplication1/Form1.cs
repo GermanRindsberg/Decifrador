@@ -19,9 +19,7 @@ namespace WindowsFormsApplication1
 
         private void btnIniciar_Click_1(object sender, EventArgs e)
         {
-
             Random ran = new Random();
-
             int num1 = ran.Next(1, 10);
             int num2 = ran.Next(1, 10);
             int num3 = ran.Next(1, 10);
@@ -37,7 +35,6 @@ namespace WindowsFormsApplication1
                  num3 = ran.Next(1, 10);
                  num4 = ran.Next(1, 10);
             }
-
 
             txtNum1.Text = Convert.ToString(num1);
             txtNum2.Text = Convert.ToString(num2);
@@ -68,61 +65,55 @@ namespace WindowsFormsApplication1
             String num2 = txt2.Text;
             String num3 = txt3.Text;
             String num4 = txt4.Text;
+
             int contadorCorrectos = 0;
             int contadorIncorrectos = 0;
 
             if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
             {
-                if (num1 == txtNum1.Text && num1 != txtNum2.Text && num1 != txtNum3.Text && num1 != txtNum4.Text)
+                if (num1 == txtNum1.Text)
                 {
                     contadorCorrectos++;
-
                 }
                 else
                 {
                     contadorIncorrectos++;
                 }
             }
-
             if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
             {
-                if (num2 == txtNum2.Text && num2 != txtNum1.Text && num2 != txtNum3.Text && num2 != txtNum4.Text)
+                if (num2 == txtNum2.Text)
                 {
                     contadorCorrectos++;
-
                 }
                 else
                 {
                     contadorIncorrectos++;
-
                 }
             }
-
             if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
             {
-                if (num3 == txtNum3.Text && num3 != txtNum2.Text && num3 != txtNum1.Text && num3 != txtNum4.Text)
+                if (num3 == txtNum3.Text)
                 {
                     contadorCorrectos++;
-
                 }
                 else
                 {
                     contadorIncorrectos++;
                 }
             }
-
             if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
             {
-                if (num4 == txtNum4.Text && num4 != txtNum2.Text && num4 != txtNum3.Text && num4 != txtNum1.Text)
+                if (num4 == txtNum4.Text)
                 {
                     contadorCorrectos++;
-
                 }
                 else
                 {
                     contadorIncorrectos++;
                 }
             }
+
 
             lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
             lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
