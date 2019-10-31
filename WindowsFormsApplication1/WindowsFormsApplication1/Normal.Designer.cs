@@ -40,7 +40,7 @@
             this.txtNum3 = new System.Windows.Forms.TextBox();
             this.txtNum2 = new System.Windows.Forms.TextBox();
             this.txtNum1 = new System.Windows.Forms.TextBox();
-            this.lblBienvenido = new System.Windows.Forms.Label();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lblMensajeIncorrectos
@@ -48,11 +48,11 @@
             this.lblMensajeIncorrectos.AutoSize = true;
             this.lblMensajeIncorrectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensajeIncorrectos.ForeColor = System.Drawing.Color.White;
-            this.lblMensajeIncorrectos.Location = new System.Drawing.Point(23, 341);
+            this.lblMensajeIncorrectos.Location = new System.Drawing.Point(10, 341);
             this.lblMensajeIncorrectos.Name = "lblMensajeIncorrectos";
-            this.lblMensajeIncorrectos.Size = new System.Drawing.Size(58, 24);
+            this.lblMensajeIncorrectos.Size = new System.Drawing.Size(361, 24);
             this.lblMensajeIncorrectos.TabIndex = 23;
-            this.lblMensajeIncorrectos.Text = "Texto";
+            this.lblMensajeIncorrectos.Text = "Felicitaciones has ganado en 150 intentos";
             this.lblMensajeIncorrectos.Visible = false;
             // 
             // lblMensajeCorrectos
@@ -60,11 +60,11 @@
             this.lblMensajeCorrectos.AutoSize = true;
             this.lblMensajeCorrectos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMensajeCorrectos.ForeColor = System.Drawing.Color.White;
-            this.lblMensajeCorrectos.Location = new System.Drawing.Point(24, 301);
+            this.lblMensajeCorrectos.Location = new System.Drawing.Point(11, 301);
             this.lblMensajeCorrectos.Name = "lblMensajeCorrectos";
-            this.lblMensajeCorrectos.Size = new System.Drawing.Size(58, 24);
+            this.lblMensajeCorrectos.Size = new System.Drawing.Size(361, 24);
             this.lblMensajeCorrectos.TabIndex = 22;
-            this.lblMensajeCorrectos.Text = "Texto";
+            this.lblMensajeCorrectos.Text = "Felicitaciones has ganado en 150 intentos";
             this.lblMensajeCorrectos.Visible = false;
             // 
             // btnProbar
@@ -78,6 +78,7 @@
             this.btnProbar.UseVisualStyleBackColor = true;
             this.btnProbar.Visible = false;
             this.btnProbar.Click += new System.EventHandler(this.btnProbar_Click_1);
+            this.btnProbar.MouseClick += new System.Windows.Forms.MouseEventHandler(this.btnProbar_MouseClick);
             // 
             // txt4
             // 
@@ -179,17 +180,17 @@
             this.txtNum1.TabIndex = 12;
             this.txtNum1.Visible = false;
             // 
-            // lblBienvenido
+            // txtUsuario
             // 
-            this.lblBienvenido.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.lblBienvenido.AutoSize = true;
-            this.lblBienvenido.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBienvenido.ForeColor = System.Drawing.Color.White;
-            this.lblBienvenido.Location = new System.Drawing.Point(71, 9);
-            this.lblBienvenido.Name = "lblBienvenido";
-            this.lblBienvenido.Size = new System.Drawing.Size(105, 24);
-            this.lblBienvenido.TabIndex = 24;
-            this.lblBienvenido.Text = "Bienvenido";
+            this.txtUsuario.BackColor = System.Drawing.Color.Maroon;
+            this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.ForeColor = System.Drawing.Color.White;
+            this.txtUsuario.Location = new System.Drawing.Point(28, 12);
+            this.txtUsuario.Multiline = true;
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(326, 41);
+            this.txtUsuario.TabIndex = 25;
             // 
             // Normal
             // 
@@ -197,7 +198,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(378, 439);
-            this.Controls.Add(this.lblBienvenido);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblMensajeIncorrectos);
             this.Controls.Add(this.lblMensajeCorrectos);
             this.Controls.Add(this.btnProbar);
@@ -235,7 +236,7 @@
         private System.Windows.Forms.TextBox txtNum3;
         private System.Windows.Forms.TextBox txtNum2;
         private System.Windows.Forms.TextBox txtNum1;
-        public System.Windows.Forms.Label lblBienvenido;
+        public System.Windows.Forms.TextBox txtUsuario;
     }
 }
 

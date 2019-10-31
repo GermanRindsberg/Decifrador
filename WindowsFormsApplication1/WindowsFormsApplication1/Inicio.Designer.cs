@@ -146,11 +146,11 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.RadioButton rbFacil;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton rbDificil;
         private System.Windows.Forms.RadioButton rbNormal;
         private System.Windows.Forms.Button btnAceptar;
+        public System.Windows.Forms.TextBox txtNombre;
     }
 }

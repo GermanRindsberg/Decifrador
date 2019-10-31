@@ -10,9 +10,11 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+
+
     public partial class Inicio : Form
     {
-        public string nombre = "";
+     
         public Inicio()
         {
             InitializeComponent();
@@ -20,20 +22,22 @@ namespace WindowsFormsApplication1
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            string nombre = txtNombre.Text;
+
             if (txtNombre.Text == "" || txtNombre.Text == "Ingresa tu nombre")
             {
                 MessageBox.Show("Debes ingresar un nombre de usuario", "ATENCION JUGADOR");
             }
             else
             {
-                nombre = txtNombre.Text;
+               nombre = txtNombre.Text;
             }
 
             if (rbNormal.Checked == true)
             {
                 Normal normal = new Normal();
-                normal.lblBienvenido.Text = "Hola "+nombre+", mucha suerte!";
                 normal.Show();
+                normal.txtUsuario.Text = "Bienvenido "+ nombre + " Mucha suerte!";
                 this.Hide();
 
             }
@@ -55,5 +59,6 @@ namespace WindowsFormsApplication1
             }
         }
         #endregion
+
     }
 }

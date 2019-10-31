@@ -10,8 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
+    
+
     public partial class Normal : Form
     {
+        public int contadorDeClicks = 0;
+        public string usuario;
+
         public Normal()
         {
             InitializeComponent();
@@ -46,7 +51,7 @@ namespace WindowsFormsApplication1
             txtNum2.Visible = false;
             txtNum3.Visible = false;
             txtNum4.Visible = false;
-            lblBienvenido.Visible = false;
+            txtUsuario.Visible = false;
             lblMensajeCorrectos.Text = "";
             btnProbar.Visible = true;
 
@@ -128,6 +133,7 @@ namespace WindowsFormsApplication1
                         contadorIncorrectos++;
                     }
                 }
+
             }
 
 
@@ -138,7 +144,7 @@ namespace WindowsFormsApplication1
 
             if (contadorCorrectos == 4)
             {
-                lblMensajeCorrectos.Text = "Felicitaciones, has ganado";
+                lblMensajeCorrectos.Text = "Felicitaciones, has ganado. En "+ contadorDeClicks +" intentos";
                 lblMensajeIncorrectos.Visible = false;
                 btnIniciar.Visible = true;
                 btnProbar.Visible = false;
@@ -227,6 +233,9 @@ namespace WindowsFormsApplication1
             Application.Exit();
         }
 
-       
+        private void btnProbar_MouseClick(object sender, MouseEventArgs e)
+        {
+            contadorDeClicks++;
+        }
     }
 }
