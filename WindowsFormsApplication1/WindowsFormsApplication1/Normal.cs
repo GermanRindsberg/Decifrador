@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1
 {
-    public partial class Form1 : Form
+    public partial class Normal : Form
     {
-        public Form1()
+        public Normal()
         {
             InitializeComponent();
         }
@@ -41,17 +41,21 @@ namespace WindowsFormsApplication1
             txtNum3.Text = Convert.ToString(num3);
             txtNum4.Text = Convert.ToString(num4);
  
-            /*btnIniciar.Visible = false;
+            btnIniciar.Visible = false;
             txtNum1.Visible = false;
             txtNum2.Visible = false;
             txtNum3.Visible = false;
-            txtNum4.Visible = false;*/
+            txtNum4.Visible = false;
+            lblBienvenido.Visible = false;
             lblMensajeCorrectos.Text = "";
             btnProbar.Visible = true;
+
             txt1.Text = "";
             txt2.Text = "";
             txt3.Text = "";
             txt4.Text = "";
+
+
             txt1.Visible = true;
             txt2.Visible = true;
             txt3.Visible = true;
@@ -69,48 +73,60 @@ namespace WindowsFormsApplication1
             int contadorCorrectos = 0;
             int contadorIncorrectos = 0;
 
-            if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
+            //evito que se repitan los numeros
+            if (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 || num3 == num4)
             {
-                if (num1 == txtNum1.Text)
-                {
-                    contadorCorrectos++;
-                }
-                else
-                {
-                    contadorIncorrectos++;
-                }
+                lblMensajeCorrectos.Text = "No se deben repetir numeros";
+                lblMensajeCorrectos.Visible = true;
+                return;
             }
-            if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
+
+            else
             {
-                if (num2 == txtNum2.Text)
+
+                if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
                 {
-                    contadorCorrectos++;
+                    if (num1 == txtNum1.Text)
+                    {
+                        contadorCorrectos++;
+                    }
+                    else
+                    {
+                        contadorIncorrectos++;
+                    }
                 }
-                else
+                if (num2 == txtNum1.Text || num2 == txtNum2.Text || num2 == txtNum3.Text || num2 == txtNum4.Text)
                 {
-                    contadorIncorrectos++;
+                    if (num2 == txtNum2.Text)
+                    {
+                        contadorCorrectos++;
+                    }
+                    else
+                    {
+                        contadorIncorrectos++;
+                    }
                 }
-            }
-            if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
-            {
-                if (num3 == txtNum3.Text)
+                if (num3 == txtNum1.Text || num3 == txtNum2.Text || num3 == txtNum3.Text || num3 == txtNum4.Text)
                 {
-                    contadorCorrectos++;
+                    if (num3 == txtNum3.Text)
+                    {
+                        contadorCorrectos++;
+                    }
+                    else
+                    {
+                        contadorIncorrectos++;
+                    }
                 }
-                else
+                if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
                 {
-                    contadorIncorrectos++;
-                }
-            }
-            if (num4 == txtNum1.Text || num4 == txtNum2.Text || num4 == txtNum3.Text || num4 == txtNum4.Text)
-            {
-                if (num4 == txtNum4.Text)
-                {
-                    contadorCorrectos++;
-                }
-                else
-                {
-                    contadorIncorrectos++;
+                    if (num4 == txtNum4.Text)
+                    {
+                        contadorCorrectos++;
+                    }
+                    else
+                    {
+                        contadorIncorrectos++;
+                    }
                 }
             }
 
@@ -135,19 +151,22 @@ namespace WindowsFormsApplication1
         }
         
         #region Efectos visuales
-
+        
         private void txt1_TextChanged_1(object sender, EventArgs e)
         {
-     
-            if (txt1.Text != "")
+            lblMensajeCorrectos.Visible = false;
+            lblMensajeIncorrectos.Visible = false;
+
+            if (txt1.Text != "" && txt2.Text == "")
             {
                 txt2.Focus();
             }
-     
         }
         private void txt2_TextChanged(object sender, EventArgs e)
         {
-            if (txt2.Text != "")
+            lblMensajeCorrectos.Visible = false;
+            lblMensajeIncorrectos.Visible = false;
+            if (txt2.Text != "" && txt3.Text == "")
             {
                 txt3.Focus();
             }
@@ -155,61 +174,59 @@ namespace WindowsFormsApplication1
 
         private void txt3_TextChanged(object sender, EventArgs e)
         {
-            if (txt3.Text != "")
+            lblMensajeCorrectos.Visible = false;
+            lblMensajeIncorrectos.Visible = false;
+            if (txt3.Text != "" && txt4.Text == "")
             {
-                txt4.Focus();
+              txt4.Focus();
             }
         }
+
+        private void txt4_TextChanged(object sender, EventArgs e)
+        {
+            lblMensajeCorrectos.Visible = false;
+            lblMensajeIncorrectos.Visible = false;
+        }
+
+
 
         private void txt4_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                txt4.Text = "";
                 txt3.Focus();
             }
-
+            txt4.Text = "";
         }
 
         private void txt3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                txt3.Text = "";
                 txt2.Focus();
             }
+            txt3.Text = "";
         }
 
         private void txt2_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                txt2.Text = "";
                 txt1.Focus();
             }
+            txt2.Text="";
         }
-
-        private void txt1_Enter(object sender, EventArgs e)
+        private void txt1_KeyPress(object sender, KeyPressEventArgs e)
         {
             txt1.Text = "";
         }
-
-        private void txt2_Enter(object sender, EventArgs e)
-        {
-            txt2.Text = "";
-        }
-
-        private void txt3_Enter(object sender, EventArgs e)
-        {
-            txt3.Text = "";
-        }
-
-        private void txt4_Enter(object sender, EventArgs e)
-        {
-            txt4.Text = "";
-        }
-
         #endregion
 
+        private void Normal_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
+
+       
     }
 }
