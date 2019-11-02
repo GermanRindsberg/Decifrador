@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Formularios\Dificil.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Dificil.Designer.cs">
+      <DependentUpon>Dificil.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Facil.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,6 +72,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\Dificil.resx">
+      <DependentUpon>Dificil.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Facil.resx">
       <DependentUpon>Facil.cs</DependentUpon>
     </EmbeddedResource>

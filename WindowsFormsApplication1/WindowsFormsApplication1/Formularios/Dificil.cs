@@ -10,18 +10,20 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApplication1.Formularios
 {
-    public partial class Facil : Form
+    public partial class Dificil : Form
     {
-        public int contadorDeClicks = 0;
+        public int contadorDeClicks = 9;
+
         public string usuario;
 
-        public Facil()
+        public Dificil()
         {
             InitializeComponent();
         }
 
         private void btnIniciar_Click(object sender, EventArgs e)
         {
+
             Random ran = new Random();
             int num1 = ran.Next(1, 10);
             int num2 = ran.Next(1, 10);
@@ -52,6 +54,8 @@ namespace WindowsFormsApplication1.Formularios
             txtUsuario.Visible = false;
             lblMensajeCorrectos.Text = "";
             btnProbar.Visible = true;
+            txtIntentos.Visible = true;
+            lblIntentos.Visible = true;
 
             txt1.Text = "";
             txt2.Text = "";
@@ -75,6 +79,22 @@ namespace WindowsFormsApplication1.Formularios
 
             int contadorCorrectos = 0;
             int contadorIncorrectos = 0;
+            
+            txtIntentos.Text = Convert.ToString(contadorDeClicks);
+            if (contadorDeClicks==0)
+            {
+                lblMensajeCorrectos.Text = "Te quedaste sin intentos, fucking looser";
+                lblMensajeCorrectos.Visible = true;
+                lblMensajeIncorrectos.Visible = false;
+                btnIniciar.Visible = true;
+                btnProbar.Visible = false;
+                txtNum1.Visible = true;
+                txtNum2.Visible = true;
+                txtNum3.Visible = true;
+                txtNum4.Visible = true;
+                contadorDeClicks = 9;
+                return;
+            }
 
             //evito que se repitan los numeros
             if (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 || num3 == num4)
@@ -83,16 +103,13 @@ namespace WindowsFormsApplication1.Formularios
                 lblMensajeCorrectos.Visible = true;
                 return;
             }
-
             else
             {
-
                 if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
                 {
                     if (num1 == txtNum1.Text)
                     {
                         contadorCorrectos++;
-                        txtNum1.Visible = true;
                     }
                     else
                     {
@@ -104,7 +121,6 @@ namespace WindowsFormsApplication1.Formularios
                     if (num2 == txtNum2.Text)
                     {
                         contadorCorrectos++;
-                        txtNum2.Visible = true;
                     }
                     else
                     {
@@ -116,7 +132,6 @@ namespace WindowsFormsApplication1.Formularios
                     if (num3 == txtNum3.Text)
                     {
                         contadorCorrectos++;
-                        txtNum3.Visible = true;
                     }
                     else
                     {
@@ -128,7 +143,6 @@ namespace WindowsFormsApplication1.Formularios
                     if (num4 == txtNum4.Text)
                     {
                         contadorCorrectos++;
-                        txtNum4.Visible = true;
                     }
                     else
                     {
@@ -227,18 +241,17 @@ namespace WindowsFormsApplication1.Formularios
         {
             txt1.Text = "";
         }
-
-
         #endregion
 
-        private void Facil_FormClosed(object sender, FormClosedEventArgs e)
+        private void Dificil_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
         }
 
         private void btnProbar_MouseClick(object sender, MouseEventArgs e)
         {
-            contadorDeClicks++;
+            contadorDeClicks--;
         }
+
     }
 }

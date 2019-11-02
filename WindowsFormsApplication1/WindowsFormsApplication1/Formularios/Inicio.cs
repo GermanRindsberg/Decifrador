@@ -47,6 +47,13 @@ namespace WindowsFormsApplication1
                 facil.txtUsuario.Text= "Bienvenido " + nombre + " Mucha suerte!";
                 this.Hide();
             }
+            if (rbDificil.Checked == true)
+            {
+                Formularios.Dificil dificil = new Formularios.Dificil();
+                dificil.Show();
+                dificil.txtUsuario.Text = "Bienvenida/o " + nombre + ", mucha suerte!";
+                this.Hide();
+            }
         }
       
         #region Efectos visuales
