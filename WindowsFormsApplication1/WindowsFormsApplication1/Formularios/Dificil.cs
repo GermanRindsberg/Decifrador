@@ -79,11 +79,12 @@ namespace WindowsFormsApplication1.Formularios
 
             int contadorCorrectos = 0;
             int contadorIncorrectos = 0;
-            
+
             txtIntentos.Text = Convert.ToString(contadorDeClicks);
-            if (contadorDeClicks==0)
+
+            if (contadorDeClicks == 0)
             {
-                lblMensajeCorrectos.Text = "Te quedaste sin intentos, fucking looser";
+                lblMensajeCorrectos.Text = "Te quedaste sin intentos, suerte la proxima";
                 lblMensajeCorrectos.Visible = true;
                 lblMensajeIncorrectos.Visible = false;
                 btnIniciar.Visible = true;
@@ -96,10 +97,13 @@ namespace WindowsFormsApplication1.Formularios
                 return;
             }
 
-            //evito que se repitan los numeros
+            contadorDeClicks--;
+
+            #region evito que se repitan los numeros
             if (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 || num3 == num4)
             {
                 lblMensajeCorrectos.Text = "No se deben repetir numeros";
+                contadorDeClicks++;
                 lblMensajeCorrectos.Visible = true;
                 return;
             }
@@ -149,28 +153,31 @@ namespace WindowsFormsApplication1.Formularios
                         contadorIncorrectos++;
                     }
                 }
+                #endregion
 
-            }
+                lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
+                lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
+                lblMensajeCorrectos.Visible = true;
+                lblMensajeIncorrectos.Visible = true;
 
-
-            lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
-            lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
-            lblMensajeCorrectos.Visible = true;
-            lblMensajeIncorrectos.Visible = true;
-
-            if (contadorCorrectos == 4)
-            {
-                lblMensajeCorrectos.Text = "Felicitaciones, has ganado. En " + contadorDeClicks + " intentos";
-                lblMensajeIncorrectos.Visible = false;
-                btnIniciar.Visible = true;
-                btnProbar.Visible = false;
-                txtNum1.Visible = true;
-                txtNum2.Visible = true;
-                txtNum3.Visible = true;
-                txtNum4.Visible = true;
-
+                if (contadorCorrectos == 4)
+                {
+                    lblIntentos.Visible = false;
+                    txtIntentos.Visible = false;
+                    lblMensajeCorrectos.Text = "Felicitaciones, has ganado. Y te sobraron ";
+                    lblMensajeIncorrectos.Text = contadorDeClicks + " intentos";
+                    btnIniciar.Visible = true;
+                    btnProbar.Visible = false;
+                    txtNum1.Visible = true;
+                    txtNum2.Visible = true;
+                    txtNum3.Visible = true;
+                    txtNum4.Visible = true;
+                }
             }
         }
+
+
+    
 
         #region Efectos visuales
         private void txt1_TextChanged(object sender, EventArgs e)
@@ -245,7 +252,9 @@ namespace WindowsFormsApplication1.Formularios
 
         private void Dificil_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Inicio ini = new Inicio();
+            ini.Show();
+            this.Hide();
         }
 
         private void btnProbar_MouseClick(object sender, MouseEventArgs e)

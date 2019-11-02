@@ -14,7 +14,7 @@ namespace WindowsFormsApplication1
 
     public partial class Normal : Form
     {
-        public int contadorDeClicks = 0;
+        public int contadorDeClicks = 19;
         public string usuario;
 
         public Normal()
@@ -54,6 +54,8 @@ namespace WindowsFormsApplication1
             txtUsuario.Visible = false;
             lblMensajeCorrectos.Text = "";
             btnProbar.Visible = true;
+            lblIntentos.Visible = true;
+            txtIntentos.Visible = true;
 
             txt1.Text = "";
             txt2.Text = "";
@@ -78,17 +80,35 @@ namespace WindowsFormsApplication1
             int contadorCorrectos = 0;
             int contadorIncorrectos = 0;
 
-            //evito que se repitan los numeros
-            if (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 || num3 == num4)
+            txtIntentos.Text = Convert.ToString(contadorDeClicks);
+
+            if (contadorDeClicks == 0)
             {
-                lblMensajeCorrectos.Text = "No se deben repetir numeros";
+                lblMensajeCorrectos.Text = "Te quedaste sin intentos, suerte la proxima";
                 lblMensajeCorrectos.Visible = true;
+                lblMensajeIncorrectos.Visible = false;
+                btnIniciar.Visible = true;
+                btnProbar.Visible = false;
+                txtNum1.Visible = true;
+                txtNum2.Visible = true;
+                txtNum3.Visible = true;
+                txtNum4.Visible = true;
+                contadorDeClicks = 19;
                 return;
             }
 
+            contadorDeClicks--;
+
+            #region evito que se repitan los numeros
+            if (num1 == num2 || num1 == num3 || num1 == num4 || num2 == num3 || num2 == num4 || num3 == num4)
+            {
+                lblMensajeCorrectos.Text = "No se deben repetir numeros";
+                contadorDeClicks++;
+                lblMensajeCorrectos.Visible = true;
+                return;
+            }
             else
             {
-
                 if (num1 == txtNum1.Text || num1 == txtNum2.Text || num1 == txtNum3.Text || num1 == txtNum4.Text)
                 {
                     if (num1 == txtNum1.Text)
@@ -133,9 +153,7 @@ namespace WindowsFormsApplication1
                         contadorIncorrectos++;
                     }
                 }
-
-            }
-
+                #endregion
 
             lblMensajeCorrectos.Text = "Hay " + contadorCorrectos + " numeros correctos bien ubicados";
             lblMensajeIncorrectos.Text = "Hay " + contadorIncorrectos + " numeros correctos mal ubicados";
@@ -144,8 +162,10 @@ namespace WindowsFormsApplication1
 
             if (contadorCorrectos == 4)
             {
-                lblMensajeCorrectos.Text = "Felicitaciones, has ganado. En "+ contadorDeClicks +" intentos";
-                lblMensajeIncorrectos.Visible = false;
+                    lblIntentos.Visible = false;
+                    txtIntentos.Visible = false;
+                lblMensajeCorrectos.Text = "Felicitaciones, has ganado. Y te sobraron ";
+                lblMensajeIncorrectos.Text = contadorDeClicks + " intentos";
                 btnIniciar.Visible = true;
                 btnProbar.Visible = false;
                 txtNum1.Visible = true;
@@ -154,7 +174,8 @@ namespace WindowsFormsApplication1
                 txtNum4.Visible = true;
 
             }
-        }
+         }
+      }
         
         #region Efectos visuales
         
@@ -233,7 +254,9 @@ namespace WindowsFormsApplication1
 
         private void Normal_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Inicio ini = new Inicio();
+            ini.Show();
+            this.Hide();
         }
 
         private void btnProbar_MouseClick(object sender, MouseEventArgs e)

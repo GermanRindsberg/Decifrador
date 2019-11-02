@@ -233,7 +233,9 @@ namespace WindowsFormsApplication1.Formularios
 
         private void Facil_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            Inicio ini = new Inicio();
+            ini.Show();
+            this.Hide();
         }
 
         private void btnProbar_MouseClick(object sender, MouseEventArgs e)

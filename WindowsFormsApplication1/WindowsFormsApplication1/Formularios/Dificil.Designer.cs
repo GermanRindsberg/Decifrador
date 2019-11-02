@@ -245,6 +245,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Dificil";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dificil";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Dificil_FormClosed);
             this.ResumeLayout(false);

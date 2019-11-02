@@ -41,6 +41,8 @@
             this.txtNum2 = new System.Windows.Forms.TextBox();
             this.txtNum1 = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtIntentos = new System.Windows.Forms.TextBox();
+            this.lblIntentos = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMensajeIncorrectos
@@ -184,7 +186,7 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.Maroon;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
             this.txtUsuario.Location = new System.Drawing.Point(28, 12);
             this.txtUsuario.Multiline = true;
@@ -192,12 +194,40 @@
             this.txtUsuario.Size = new System.Drawing.Size(326, 41);
             this.txtUsuario.TabIndex = 25;
             // 
+            // txtIntentos
+            // 
+            this.txtIntentos.BackColor = System.Drawing.Color.Maroon;
+            this.txtIntentos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtIntentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIntentos.ForeColor = System.Drawing.Color.White;
+            this.txtIntentos.Location = new System.Drawing.Point(210, 261);
+            this.txtIntentos.Multiline = true;
+            this.txtIntentos.Name = "txtIntentos";
+            this.txtIntentos.Size = new System.Drawing.Size(43, 21);
+            this.txtIntentos.TabIndex = 55;
+            this.txtIntentos.Text = "20";
+            this.txtIntentos.Visible = false;
+            // 
+            // lblIntentos
+            // 
+            this.lblIntentos.AutoSize = true;
+            this.lblIntentos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIntentos.ForeColor = System.Drawing.Color.White;
+            this.lblIntentos.Location = new System.Drawing.Point(112, 260);
+            this.lblIntentos.Name = "lblIntentos";
+            this.lblIntentos.Size = new System.Drawing.Size(94, 25);
+            this.lblIntentos.TabIndex = 54;
+            this.lblIntentos.Text = "Intentos:";
+            this.lblIntentos.Visible = false;
+            // 
             // Normal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(379, 441);
+            this.Controls.Add(this.txtIntentos);
+            this.Controls.Add(this.lblIntentos);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.lblMensajeIncorrectos);
             this.Controls.Add(this.lblMensajeCorrectos);
@@ -237,6 +267,8 @@
         private System.Windows.Forms.TextBox txtNum2;
         private System.Windows.Forms.TextBox txtNum1;
         public System.Windows.Forms.TextBox txtUsuario;
+        public System.Windows.Forms.TextBox txtIntentos;
+        private System.Windows.Forms.Label lblIntentos;
     }
 }
 

@@ -27,6 +27,7 @@ namespace WindowsFormsApplication1
             if (txtNombre.Text == "" || txtNombre.Text == "Ingresa tu nombre")
             {
                 MessageBox.Show("Debes ingresar un nombre de usuario", "ATENCION JUGADOR");
+                return;
             }
             else
             {
@@ -73,5 +74,9 @@ namespace WindowsFormsApplication1
         }
         #endregion
 
+        private void Inicio_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

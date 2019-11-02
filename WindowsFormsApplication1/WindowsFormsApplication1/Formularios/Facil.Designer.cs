@@ -47,7 +47,7 @@
             // 
             this.txtUsuario.BackColor = System.Drawing.Color.Maroon;
             this.txtUsuario.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtUsuario.ForeColor = System.Drawing.Color.White;
             this.txtUsuario.Location = new System.Drawing.Point(30, 12);
             this.txtUsuario.Multiline = true;
